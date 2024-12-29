@@ -1,37 +1,17 @@
+import 'package:c_commerce/app/modules/MainScreen/controllers/main_screen_controller.dart';
+import 'package:c_commerce/app/modules/MainScreen/views/main_screen_view.dart';
 import 'package:c_commerce/utils/data_utils/data_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../Home/controllers/home_controller.dart';
+
 class FormView extends GetView {
-  final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
-  final _codeController = TextEditingController();
-  final _amountController = TextEditingController();
-  final _priceController = TextEditingController();
-  final _changeController = TextEditingController();
-  final RxBool _isUp = true.obs;
 
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-
-      var newData = {
-        'icon': Icons.star,
-        'name': _nameController.text,
-        'code': _codeController.text,
-        'amount': _amountController.text,
-        'price': _priceController.text,
-        'change': (_isUp.value ? '+' : '-') + _changeController.text + '%',
-        'isUp': _isUp.value,
-      };
-
-      DataList.dataList.add(newData);
-
-      Get.back();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
+    final MainScreenController controller = Get.put(MainScreenController());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -42,11 +22,11 @@ class FormView extends GetView {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
-          key: _formKey,
+          key: controller.formKey,
           child: ListView(
             children: [
               TextFormField(
-                controller: _nameController,
+                controller: controller.nameController,
                 decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -56,7 +36,7 @@ class FormView extends GetView {
                 },
               ),
               TextFormField(
-                controller: _codeController,
+                controller: controller.codeController,
                 decoration: const InputDecoration(labelText: 'Code'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -66,7 +46,7 @@ class FormView extends GetView {
                 },
               ),
               TextFormField(
-                controller: _amountController,
+                controller: controller.amountController,
                 decoration: const InputDecoration(labelText: 'Amount'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -77,7 +57,7 @@ class FormView extends GetView {
                 },
               ),
               TextFormField(
-                controller: _priceController,
+                controller: controller.priceController,
                 decoration: const InputDecoration(labelText: 'Price'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -88,7 +68,7 @@ class FormView extends GetView {
                 },
               ),
               TextFormField(
-                controller: _changeController,
+                controller: controller.changeController,
                 decoration: const InputDecoration(labelText: 'Change'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -104,9 +84,9 @@ class FormView extends GetView {
                     const Text('Is the change up?'),
                     Switch(
                       activeColor: Colors.indigo,
-                      value: _isUp.value,
+                      value: controller.isUp.value,
                       onChanged: (value) {
-                        _isUp.value = value;
+                        controller.isUp.value = value;
                       },
                     ),
                   ],
@@ -115,7 +95,16 @@ class FormView extends GetView {
               const SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.indigo),
-                onPressed: _submitForm,
+                onPressed:(){
+                  controller.submitForm();
+                  Get.back();
+                  Get.snackbar(
+                    'Success',
+                    'Form submitted successfully!',
+                    colorText: Colors.white,
+                    backgroundColor: Colors.green,
+                  );
+                  },
                 child: const Text('Submit'),
               ),
             ],
