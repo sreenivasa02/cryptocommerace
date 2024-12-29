@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
-import '../../../../utils/custome_widgets/crypto_tile_card_view.dart';
+import '../../../custome_widgets/crypto_tile_card_view.dart';
 import '../../todo/views/todo_view.dart';
 import '../controllers/portfilio_controller.dart';
 

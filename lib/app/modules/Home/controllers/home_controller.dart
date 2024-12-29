@@ -1,7 +1,7 @@
-import 'package:c_commerce/app/modules/Login/views/login_view.dart';
-import 'package:c_commerce/utils/data_utils/data_list.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../../../data_utils/data_list.dart';
 
 class HomeController extends GetxController {
 

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../../utils/custome_widgets/crypto_tile_card_view.dart';
+
+import '../../../custome_widgets/crypto_tile_card_view.dart';
 import '../controllers/todo_controller.dart';
 
 class TodoView extends GetView<TodoController> {

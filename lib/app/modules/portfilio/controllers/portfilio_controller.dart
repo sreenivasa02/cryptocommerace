@@ -1,6 +1,8 @@
-import 'package:c_commerce/utils/data_utils/data_list.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../data_utils/data_list.dart';
 
 class PortfilioController extends GetxController {
   var holdingValue = 2509.75.obs;

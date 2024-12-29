@@ -6,8 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/data_utils/data_list.dart';
-
+import '../../../data_utils/data_list.dart';
 class MainScreenController extends GetxController {
   var currentIndex = 0.obs;
   final formKey = GlobalKey<FormState>();

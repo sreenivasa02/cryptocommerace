@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../utils/data_utils/data_list.dart';
+import '../../../data_utils/data_list.dart';
 
 class TodoController extends GetxController {
   var isMarketDown = true.obs;

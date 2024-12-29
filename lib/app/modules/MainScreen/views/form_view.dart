@@ -1,6 +1,4 @@
 import 'package:c_commerce/app/modules/MainScreen/controllers/main_screen_controller.dart';
-import 'package:c_commerce/app/modules/MainScreen/views/main_screen_view.dart';
-import 'package:c_commerce/utils/data_utils/data_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

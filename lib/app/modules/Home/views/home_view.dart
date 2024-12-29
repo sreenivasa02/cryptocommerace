@@ -2,8 +2,7 @@ import 'dart:math';
 import 'package:c_commerce/app/modules/Login/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import '../../../../utils/custome_widgets/crypto_tile_card_view.dart';
+import '../../../custome_widgets/crypto_tile_card_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
