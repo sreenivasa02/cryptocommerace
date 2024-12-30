@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../Home/controllers/home_controller.dart';
+import 'main_screen_view.dart';
 
 class FormView extends GetView {
 
@@ -95,7 +96,7 @@ class FormView extends GetView {
                 style: ElevatedButton.styleFrom(primary: Colors.indigo),
                 onPressed:(){
                   controller.submitForm();
-                  Get.back();
+                  Get.off(() => MainScreenView());
                   Get.snackbar(
                     'Success',
                     'Form submitted successfully!',
